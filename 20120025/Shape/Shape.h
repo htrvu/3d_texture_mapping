@@ -18,8 +18,8 @@ protected:
         this->y = y;
         this->z = z;
         this->angle = 0.0f;
-        this->zrot = randFloat(0.5f, 0.8f);
-        this->deltaAngle = randFloat(0.3f, 0.5f);
+        this->zrot = randFloat(0.5f, 0.9f);
+        this->deltaAngle = randFloat(0.2f, 0.4f);
         
         int maxTextureId = Textures::getInstance()->getNTexture();
         textures.push_back(randInt(0, maxTextureId - 1));
@@ -39,7 +39,7 @@ public:
     virtual void draw() {
         glPushMatrix();
         glTranslatef(x, y, z);
-        glRotatef(angle, -1.0f, -0.5f, zrot); // Rotate about (-1, 1, 1)-axis
+        glRotatef(angle, -1.0f, 1.0f, zrot); // Rotate about (-1, 1, 1)-axis
 
         drawing();
 

@@ -55,7 +55,7 @@ public:
 
             for (int slide = 0; slide <= slices; slide++) {
                 float ratio_slice = 1.0f * slide / slices;
-                float u = 2.0f * PI * ratio_slice;
+                float u = 2.0f * PI * ratio_slice;          
                 float cos_u = cos(u);
                 float sin_u = sin(u);
                 

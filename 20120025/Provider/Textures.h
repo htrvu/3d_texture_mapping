@@ -9,22 +9,22 @@ using namespace std;
 
 class Textures {
 private:
-    vector<GLuint> textures; // Storage for textures
-    int nTexture = 0; // Number of available texture ids
+    vector<GLuint> textures;    // Storage for textures
+    int nTexture = 0;           // Number of available texture ids
 
 private:
     Textures() {
     	vector<string> paths = {
-             "E:/HCMUS Journey/Semesters/5 - 2022/Computer Graphics/Labs/4 - 3D Object Transformation and Texture Mapping/workspace/Debug/textures/texture0.jpg",
-             "E:/HCMUS Journey/Semesters/5 - 2022/Computer Graphics/Labs/4 - 3D Object Transformation and Texture Mapping/workspace/Debug/textures/texture1.jpg",
-             "E:/HCMUS Journey/Semesters/5 - 2022/Computer Graphics/Labs/4 - 3D Object Transformation and Texture Mapping/workspace/Debug/textures/texture2.jpg",
-             "E:/HCMUS Journey/Semesters/5 - 2022/Computer Graphics/Labs/4 - 3D Object Transformation and Texture Mapping/workspace/Debug/textures/texture3.jpg",
-             "E:/HCMUS Journey/Semesters/5 - 2022/Computer Graphics/Labs/4 - 3D Object Transformation and Texture Mapping/workspace/Debug/textures/texture4.jpg",
-             "E:/HCMUS Journey/Semesters/5 - 2022/Computer Graphics/Labs/4 - 3D Object Transformation and Texture Mapping/workspace/Debug/textures/texture5.jpg",
-             "E:/HCMUS Journey/Semesters/5 - 2022/Computer Graphics/Labs/4 - 3D Object Transformation and Texture Mapping/workspace/Debug/textures/texture6.jpg",
-             "E:/HCMUS Journey/Semesters/5 - 2022/Computer Graphics/Labs/4 - 3D Object Transformation and Texture Mapping/workspace/Debug/textures/texture7.jpg",
-             "E:/HCMUS Journey/Semesters/5 - 2022/Computer Graphics/Labs/4 - 3D Object Transformation and Texture Mapping/workspace/Debug/textures/texture8.jpg",
-             "E:/HCMUS Journey/Semesters/5 - 2022/Computer Graphics/Labs/4 - 3D Object Transformation and Texture Mapping/workspace/Debug/textures/texture9.jpg",
+             "./assets/textures/texture0.jpg",
+             "./assets/textures/texture1.jpg",
+             "./assets/textures/texture2.jpg",
+             "./assets/textures/texture3.jpg",
+             "./assets/textures/texture4.jpg",
+             "./assets/textures/texture5.jpg",
+             "./assets/textures/texture6.jpg",
+             "./assets/textures/texture7.jpg",
+             "./assets/textures/texture8.jpg",
+             "./assets/textures/texture9.jpg",
         };
 
         cout << "Loading textures..." << endl;
@@ -59,6 +59,7 @@ private:
     }
 
 public:
+    // Singleton pattern
     static Textures* getInstance() {
         static Textures instance;
         return &instance;
