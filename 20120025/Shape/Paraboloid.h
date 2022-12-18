@@ -4,7 +4,7 @@
 
 class Paraboloid : public Shape {
 private:
-    float a, b;     // y = x^2 / a + z ^ 2 / b, a and b are positive
+    float a, b;     // z = x^2 / a^2 + y^2 / b^2, a and b are not zero
     float height;   // height of paraboloid
     int stacks;     // number of stacks (to draw the side)
     int slices;     // number of slices (to draw the circles)
@@ -26,7 +26,7 @@ public:
       
         for (int stack = 0; stack <= stacks; stack++) {
             glBegin(GL_QUAD_STRIP);
-
+ 
             for (int slice = 0; slice <= slices; slice++) {
                 float ratio_slice = (float)slice / slices;
                 float rad = 2.0f * PI * ratio_slice;
@@ -35,8 +35,8 @@ public:
                     float ratio_stack = (float)(stack + i) / stacks;
                     float z = (1.0f - ratio_stack) * height;
 
-                    float radiusX = sqrt(z * a);
-                    float radiusZ = sqrt(z * b);
+                    float radiusX = sqrt(z * a * a);
+                    float radiusZ = sqrt(z * b * a);
 
                     float x = radiusX * cos(rad);
                     float y = radiusZ * sin(rad);

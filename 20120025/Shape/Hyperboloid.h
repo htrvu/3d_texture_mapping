@@ -47,30 +47,47 @@ public:
         // Side
         texturesControl->loadGLTextures(textures[2]);
 
-        for (int stack = 0; stack <= stacks; stack++) {
+        for (int stack = 0; stack < stacks / 2; stack++) {
             glBegin(GL_QUAD_STRIP);
 
-            float ratio_stack = 1.0f * stack / stacks;
-            float v = ratio_stack * tHeight / 2.0f;
+            for (int slice = 0; slice <= slices; slice++) {
+                float ratio_slice = 1.0f * slice / slices;
+                float v = 2.0f * PI * ratio_slice;
 
-            for (int slide = 0; slide <= slices; slide++) {
-                float ratio_slice = 1.0f * slide / slices;
-                float u = 2.0f * PI * ratio_slice;          
-                float cos_u = cos(u);
-                float sin_u = sin(u);
-                
-                float x1 = a * (cos_u - v * sin_u);
-                float y1 = b * (sin_u + v * cos_u);
-                float z1 = c * v;
+                for (int i = 0; i <= 1; i++) {
+                    float ratio_stack = 1.0f * (stack + i) / (stacks / 2);
+                    float z = ratio_stack * height / 2;
+                    float u = z / c;
 
-                float x2 = a * (cos_u + v * sin_u);
-                float y2 = b * (sin_u - v * cos_u);
-                float z2 = - c * v;
+                    float x = a * sqrt(1 + u * u) * cos(v);
+                    float y = b * sqrt(1 + u * u) * sin(v);
 
-                glVertex3f(x2, y2, z2);
-                glVertex3f(x1, y1, z1);
+                    glVertex3f(x, y, z);
+                    glTexCoord2f(ratio_slice, ratio_stack);
+                }
+            }
 
-                glTexCoord2f(ratio_slice, ratio_stack);
+            glEnd();
+        }
+
+        for (int stack = 0; stack < stacks - stacks / 2; stack++) {
+            glBegin(GL_QUAD_STRIP);
+
+            for (int slice = 0; slice <= slices; slice++) {
+                float ratio_slice = 1.0f * slice / slices;
+                float v = 2.0f * PI * ratio_slice;
+
+                for (int i = 0; i <= 1; i++) {
+                    float ratio_stack = 1.0f * (stack + i) / (stacks - stacks / 2);
+                    float z = - ratio_stack * height / 2;
+                    float u = z / c;
+
+                    float x = a * sqrt(1 + u * u) * cos(v);
+                    float y = b * sqrt(1 + u * u) * sin(v);
+
+                    glVertex3f(x, y, z);
+                    glTexCoord2f(ratio_slice, ratio_stack);
+                }
             }
 
             glEnd();

@@ -9,7 +9,7 @@ private:
     int stacks;         // number of radial sections
 
 public:
-    Torus(float x, float y, float z, float outerRadius, float innerRadius, int slices = 100, int stacks = 100)
+    Torus(float x, float y, float z, float outerRadius, float innerRadius, int stacks = 50, int slices = 180)
         : Shape(x, y, z, 1) {
         this->outerRadius = outerRadius;
         this->innerRadius = innerRadius;

@@ -10,7 +10,6 @@ using namespace std;
 class Textures {
 private:
     vector<GLuint> textures;    // Storage for textures
-    int nTexture = 0;           // Number of available texture ids
 
 private:
     Textures() {
@@ -47,7 +46,6 @@ private:
                 continue;
                 
             this->textures.push_back(id);
-            this->nTexture++;
 
             glBindTexture(GL_TEXTURE_2D, id);
             glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
@@ -70,7 +68,7 @@ public:
 
 public:
     int getNTexture() {
-        return this->nTexture;
+        return this->textures.size();
     }
 
     void loadGLTextures(int idx) {

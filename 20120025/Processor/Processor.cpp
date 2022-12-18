@@ -14,7 +14,7 @@ void Processor::display(void) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glMatrixMode(GL_MODELVIEW); // To operate on model-view matrix
 
-    // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	Processor::storage.draw();
 
     glutSwapBuffers();
@@ -27,9 +27,21 @@ void Processor::initShapes() {
         new Torus(2.0f, 2.0f, -5.0f, 0.5f, 0.2f),
         new Cylinder(-2.2f, 0.0f, -5.0f, 0.5f, 1.0f),
         new Sphere(0.0f, 0.0f, -5.0f, 0.7f),
-        new Cone(2.0f, 0.0f, -5.0f, 0.5f, 1.0f),
-        new Paraboloid(-1.4f, -2.0f, -5.0f, 0.5f, 0.5f, 0.8f),
-        new Hyperboloid(1.4f, -2.0f, -5.0f, 0.5f, 0.5f, 0.3f, 0.8f)
+        new Cone(2.0f, 0.0f, -5.0f, 0.8f, 1.0f),
+        new Paraboloid(-1.0f, -2.0f, -5.0f, 0.7f, 0.7f, 0.8f),
+        new Hyperboloid(1.0f, -2.0f, -5.0f, 0.5f, 0.5f, 0.3f, 0.7f)
+
+        // Demo for each shape:
+        //new Cube(0.0f, 0.0f, -5.0f, 1.0f)
+        //new MyEllipse(0.0f, 0.0f, -5.0f, 2.0f, 1.0f)
+        //new Circle(0.0f, 0.0f, -5.0f, 1.5f)
+        //new Cylinder(0.0f, 0.0f, -5.0f, 1.5f, 2.0f, 50)
+        //new Cone(0.0f, 0.0f, -5.0f, 1.5f, 2.0f, 50)
+        //new Sphere(0.0f, 0.0f, -5.0f, 1.3f)
+        //new Torus(0.0f, 0.0f, -5.0f, 1.3f, 0.4f)
+        //new Paraboloid(0.0f, 0.0f, -5.0f, 1.0f, 1.0f, 1.8f, 20, 30)
+        //new Hyperboloid(0.0f, 0.0f, -5.0f, 0.7f, 0.7f, 0.3f, 1.3f)
+        //new Hyperboloid(0.0f, 0.0f, -5.0f, -0.7f, -0.7f, 0.3f, 1.0f)
     });
 }
 

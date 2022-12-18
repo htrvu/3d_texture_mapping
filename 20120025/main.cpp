@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE); // Enable double buffered mode
 	glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
-	glutInitWindowPosition(50, 50); // Position the window's initial top-left corner
+	glutInitWindowPosition(50, 50);
 	glutCreateWindow("Hoang Trong Vu - 20120025 - CNTN20");
 
 	glutDisplayFunc(Processor::display);
@@ -34,8 +34,9 @@ int main(int argc, char** argv) {
     // Init shapes
     Processor::initShapes();
 
+    // Init OpenGL and start main loop
 	initGL();
-	glutMainLoop(); // Enter the infinite event-processing loop
+	glutMainLoop();
 
 	return 0;
 }

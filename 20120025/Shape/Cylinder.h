@@ -56,7 +56,6 @@ public:
            glVertex3f((float)cos(rad) * bottomRadius, (float)sin(rad) * bottomRadius, -height / 2.0f);
            glTexCoord2f(ratio, 1.0f);
            glVertex3f((float)cos(rad) * topRadius, (float)sin(rad) * topRadius, height / 2.0f);
-
         }
         glTexCoord2f(0.0f, 0.0f);
         glVertex3f(bottomRadius, 0.0f, -height / 2.0f);

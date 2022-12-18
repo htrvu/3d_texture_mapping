@@ -10,7 +10,7 @@ protected:
     float angle;                // Angle of rotation
     float zrot;                 // Z-axis rotation
     float deltaAngle;           // Angle of rotation per frame
-    vector<GLuint> textures;    // Textures for drawing
+    vector<GLuint> textures;    // Textures for mapping
     
 protected:
     Shape(float x, float y, float z, int nTexture) {
@@ -19,7 +19,7 @@ protected:
         this->z = z;
         this->angle = 0.0f;
         this->zrot = randFloat(0.5f, 0.9f);
-        this->deltaAngle = randFloat(0.2f, 0.4f);
+        this->deltaAngle = randFloat(0.3f, 0.5f);
         
         int maxTextureId = Textures::getInstance()->getNTexture();
         textures.push_back(randInt(0, maxTextureId - 1));
@@ -39,11 +39,11 @@ public:
     virtual void draw() {
         glPushMatrix();
         glTranslatef(x, y, z);
-        glRotatef(angle, -1.0f, 1.0f, zrot); // Rotate about (-1, 1, 1)-axis
+        glRotatef(angle, -1.0f, -1.5f, zrot);
 
         drawing();
 
-        angle += deltaAngle;	// counter clock-wise
+        angle += deltaAngle;
         glPopMatrix();
     }
 };
